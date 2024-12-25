@@ -1,0 +1,61 @@
+/* Mobile-specific styles */
+@layer utilities {
+  .mobile-safe-bottom {
+    padding-bottom: max(env(safe-area-inset-bottom), 1rem);
+  }
+
+  .mobile-safe-top {
+    padding-top: max(env(safe-area-inset-top), 1rem);
+  }
+
+  .mobile-touch-scroll {
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
+    overscroll-behavior-y: contain;
+  }
+}
+
+/* Mobile table optimizations */
+@media (max-width: 640px) {
+  .table-container {
+    margin: 0 -1rem;
+    padding: 0 1rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .table-card {
+    display: block;
+    white-space: nowrap;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  }
+}
+
+/* Mobile navigation bar */
+.mobile-nav {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* Mobile-friendly touch targets */
+.mobile-touch-target {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Mobile scrolling indicators */
+.scroll-indicator {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(to right, transparent, rgb(59 130 246 / 0.5), transparent);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.overflow-x-auto:hover .scroll-indicator {
+  opacity: 1;
+}
